@@ -1,0 +1,47 @@
+@use '../abstracts/abstracts' as abstracts;
+
+.recuadros {
+        
+    h2{
+        font-size: 1.8rem;
+        font-family: abstracts.$font_belgrano;
+        margin-top: 6%;
+    }
+    picture {
+        @include abstracts.flexbox(row){
+        margin-left: -5%;
+        }
+        img {
+            width: 55%;
+        }
+        .imgdos {
+            margin-left: -10%;
+        }
+    }
+}
+
+.div_article{
+    @include abstracts.flexbox(row){
+       font-size: abstracts.$font_size;
+       justify-content: center;
+       justify-content: space-between;
+       margin-left: 55px;
+       gap: 40px;
+       width: 90%;
+       
+    }
+    article {
+        margin-top: 5%;
+        margin-right: 15%;
+
+        .number{
+            color: abstracts.$color_rojo;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .letra{
+            color:white;
+            font-size: 1rem;
+        }
+    }
+}

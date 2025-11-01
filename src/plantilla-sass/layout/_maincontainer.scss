@@ -1,0 +1,24 @@
+@use '../abstracts/abstracts' as abstracts;
+
+.container_main {
+    width: 90%;
+    
+    margin: auto;
+    @include abstracts.flexbox(row){     
+    }
+    .left {
+        width: 70%;
+    }
+    .right {
+        width: 50%;
+        background-image: url(img/fondonegro.png);
+        
+        .img {
+            width: 30%;
+            position: absolute;
+            right:9%;
+            top: 14.5%;
+        }
+
+    }
+}

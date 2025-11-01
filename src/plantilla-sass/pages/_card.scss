@@ -1,0 +1,85 @@
+@use '../abstracts/abstracts' as abstracts;
+
+.tarjeta {
+    width:80%;
+    height: 20%;
+    margin-top: 80%;
+    border: 1px solid;
+    background-color: white;
+    margin-left: 10%;
+
+    
+    .up {
+        
+        display: grid;
+        grid-template: repeat(2,1fr)/repeat(5,1fr);
+        grid-template-areas: 'img p1 . .  p2'
+                              'img h41  . . h42';
+        img {
+            width: 50%;
+            grid-area: img;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .p1{
+            font-size:0.7rem;
+            color: abstracts.$letra_gris;
+            grid-area: p1;
+            justify-self: start;
+            margin-top: 20px;
+            margin-left: -10px
+        }
+        .p2{
+            @extend .p1;
+            grid-area: p2;
+        }
+
+        .h41{
+            font-size: 1rem;
+            font-weight: 600;
+            grid-area: h41;
+            margin-top: -10px;
+            margin-left: -15px
+        }
+        .h42{
+            font-size: 1rem;
+            font-weight: 600;
+            grid-area: h42;
+            margin-top: -10px;
+            margin-left: -10px
+        }
+
+    }
+
+    /* --------------------------------------- */
+    .down {
+        .linea {
+            width: 350px;
+            height: 2px;
+            margin-left: 40px;
+            margin-top: -20px;
+            margin-bottom: 30px;
+            opacity: 0.5;
+        }
+        .fondo_rojo{
+            margin-left: 5%;
+            color: white;
+            text-decoration: none;
+            background: abstracts.$color_rojo;
+            font-size: abstracts.$font_size;
+            padding: 1.5% 15%;
+        }
+        .sin_fondo{
+            margin-left: 5%;
+            color:abstracts.$color_rojo;
+            text-decoration: none;
+            
+            font-size: abstracts.$font_size;
+            padding: 1.5% 15%;
+        }
+       
+    }
+}
+
+
+

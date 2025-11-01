@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Belgrano';
+    src: url('../font_belgrano/Belgrano-Regular.eot');
+    src: url('Belgrano-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../font_belgrano/Belgrano-Regular.woff2') format('woff2'),
+        url('../font_belgrano/Belgrano-Regular.woff') format('woff'),
+        url('Belgrano-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

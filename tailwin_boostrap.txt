@@ -1,0 +1,187 @@
+
+
+# Guía para usar Tailwind y Bootstrap juntos en un proyecto con Vite + Sass 7-1
+
+## ✅ Paso 1: Crear el proyecto y configurar las dependencias
+
+1. **Crea un nuevo proyecto con Vite** (si aún no lo tienes):
+
+   ```bash
+   npm create vite@latest mi-proyecto-vite
+   cd mi-proyecto-vite
+   npm install
+   ```
+
+2. **Instala Tailwind y Bootstrap**:
+
+   ```bash
+   npm install -D tailwindcss postcss autoprefixer
+   npm install bootstrap
+   ```
+
+3. **Genera los archivos de configuración de Tailwind**:
+
+   ```bash
+   npx tailwindcss init -p
+   ```
+
+---
+
+## ✅ Paso 2: Configuración de Tailwind
+
+1. **Configura `tailwind.config.js`**:
+
+   Abre el archivo `tailwind.config.js` y asegúrate de tener esta configuración:
+
+   ```js
+   /** @type {import('tailwindcss').Config} */
+   export default {
+     content: [
+       "./index.html",
+       "./src/**/*.{js,ts,jsx,tsx,scss}",
+     ],
+     theme: {
+       extend: {},
+     },
+     plugins: [],
+   }
+   ```
+
+2. **Configura `postcss.config.js`**:
+
+   Asegúrate de tener este archivo configurado correctamente para usar Tailwind:
+
+   ```js
+   export default {
+     plugins: {
+       tailwindcss: {},
+       autoprefixer: {},
+     },
+   }
+   ```
+
+---
+
+## ✅ Paso 3: Crear archivos Sass y organización 7-1
+
+1. **Crea la estructura de carpetas 7-1** dentro de `src/sass/`:
+
+   ```bash
+   src/
+   └── sass/
+       ├── abstracts/
+       │   ├── _variables.scss
+       │   ├── _mixins.scss
+       ├── base/
+       │   ├── _reset.scss
+       │   └── _typography.scss
+       ├── components/
+       │   ├── _buttons.scss
+       ├── layout/
+       │   └── _header.scss
+       ├── pages/
+       │   └── _home.scss
+       ├── vendors/
+       │   └── _bootstrap.scss
+       └── main.scss
+   ```
+
+2. **Archivo `main.scss`** (donde importamos Tailwind y Bootstrap):
+
+   En `main.scss`, agrega:
+
+   ```scss
+   /* Primero, Tailwind */
+   @use './vendors/tailwind' as tailwind;
+
+   /* Luego, Bootstrap */
+   @use './vendors/bootstrap' as bootstrap;
+   ```
+
+---
+
+## ✅ Paso 4: Crear archivos para Tailwind y Bootstrap
+
+1. **Crea `vendors/_tailwind.scss`**:
+
+   En este archivo, solo incluirás las directivas de Tailwind:
+
+   ```scss
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   ```
+
+2. **Crea `vendors/_bootstrap.scss`**:
+
+   En este archivo, importarás Bootstrap para usar sus estilos:
+
+   ```scss
+   @use "../../../node_modules/bootstrap/scss/bootstrap" as bootstrap;
+   ```
+
+---
+
+## ✅ Paso 5: Configuración de Bootstrap
+
+1. **Importa Bootstrap en tu archivo Sass**:
+
+   Como mencionamos antes, en `vendors/_bootstrap.scss`, agregamos:
+
+   ```scss
+   @use "../../../node_modules/bootstrap/scss/bootstrap" as bootstrap;
+   ```
+
+   Esto importa **todas las clases y componentes de Bootstrap** como `$variables`, mixins y clases CSS.
+
+---
+
+## ✅ Paso 6: Uso de Tailwind y Bootstrap juntos
+
+1. **Ejemplo de uso de Tailwind**:
+
+   Puedes usar Tailwind para utilidades rápidas en tu HTML:
+
+   ```html
+   <div class="flex justify-center items-center p-4 bg-blue-500">
+     <button class="btn btn-primary">Botón de Bootstrap</button>
+     <button class="btn-sandy">Botón de Tailwind</button>
+   </div>
+   ```
+
+2. **Ejemplo de personalización con Sass y Tailwind**:
+
+   En tu archivo `.scss`, puedes personalizar componentes con Tailwind:
+
+   ```scss
+   .btn-sandy {
+     @apply bg-pink-500 text-white py-2 px-4 rounded;
+   }
+   ```
+
+---
+
+## ✅ Paso 7: Orden de importación
+
+Es **importante** que el orden de los `@use` en tu archivo `main.scss` sea el siguiente:
+
+1. **Primero Tailwind**, para que las clases utilitarias se apliquen correctamente en todo el proyecto.
+2. **Luego Bootstrap**, para que sus componentes y estilos no sobrescriban las utilidades de Tailwind.
+
+```scss
+/* Primero Tailwind */
+@use './vendors/tailwind' as tailwind;
+
+/* Luego Bootstrap */
+@use './vendors/bootstrap' as bootstrap;
+```
+
+---
+
+## 🧠 Resumen:
+
+1. **Instalas Tailwind y Bootstrap** en tu `package.json`.
+2. **Configuras los archivos de Tailwind** y **Bootstrap** en `vendors/`.
+3. **Importas ambos frameworks** en tu archivo `main.scss`.
+4. **Usas las utilidades de Tailwind** para el layout rápido y los **componentes de Bootstrap** para botones, formularios, etc.
+5. ¡Todo esto funcionando perfectamente juntos!
