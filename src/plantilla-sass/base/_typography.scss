@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Belgrano';
     src: url('/font_belgrano/Belgrano-Regular.eot');
-    src: url('Belgrano-Regular.eot?#iefix') format('embedded-opentype'),
-        url('font_belgrano/Belgrano-Regular.woff2') format('woff2'),
-        url('font_belgrano/Belgrano-Regular.woff') format('woff'),
-        url('Belgrano-Regular.ttf') format('truetype');
+    src: url('/font_belgrano/Belgrano-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/font_belgrano/Belgrano-Regular.woff2') format('woff2'),
+        url('/font_belgrano/Belgrano-Regular.woff') format('woff'),
+        url('/font_belgrano/Belgrano-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -12,11 +12,11 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: url('Poppins-ExtraLight.eot');
-    src: url('Poppins-ExtraLight.eot?#iefix') format('embedded-opentype'),
-        url('font_poppins/BebasNeue-Regular.woff2') format('woff2'),
-        url('font_poppins/Poppins-ExtraLight.woff') format('woff'),
-        url('Poppins-ExtraLight.ttf') format('truetype');
+    src: url('/font_poppins/Poppins-ExtraLight.eot');
+    src: url('/font_poppins/Poppins-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('/font_poppins/Poppins-ExtraLight.woff2') format('woff2'),
+        url('/font_poppins/Poppins-ExtraLight.woff') format('woff'),
+        url('/font_poppins/Poppins-ExtraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
